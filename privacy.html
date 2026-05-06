@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Talkimal Privacy Policy — how we collect, use, and protect your information." />
+  <title>Privacy Policy — Talkimal</title>
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="icon" href="/favicon.ico" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="inner">
+      <a href="/" class="brand">Talkimal</a>
+      <nav class="site-nav">
+        <a href="/privacy" aria-current="page">Privacy</a>
+        <a href="/terms">Terms</a>
+        <a href="/support">Support</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="legal">
+    <h1>Privacy Policy</h1>
+    <p class="meta">
+      <strong>Effective Date:</strong> 2026-05-06 &middot;
+      <strong>Last Updated:</strong> 2026-05-06
+    </p>
+
+    <p>This Privacy Policy describes how the <strong>Talkimal</strong> mobile application ("Talkimal", "the App", "we", "us", or "our") collects, uses, and shares information when you use the App on iOS or Android.</p>
+
+    <p>By installing, accessing, or using Talkimal you agree to this Privacy Policy. If you do not agree, do not use the App.</p>
+
+    <hr />
+
+    <h2>1. Who We Are</h2>
+    <p>Talkimal is operated as an individual sole proprietorship. The App lets you record short audio clips of your pet (dog, cat, bird, guinea pig, etc.), receive an AI-generated interpretation of the sound and an emotional tone, save the result in a local history, and share a generated card.</p>
+    <p>
+      <strong>Contact:</strong> <a href="mailto:support@talkimal.com">support@talkimal.com</a><br />
+      <strong>Website:</strong> <a href="https://talkimal.com">https://talkimal.com</a>
+    </p>
+
+    <h2>2. Information We Collect</h2>
+
+    <h3>2.1. Information you provide</h3>
+    <ul>
+      <li><strong>Pet profile data.</strong> Pet name, type (dog / cat / bird / guinea pig), avatar selection, response mode preference. Stored only on your device (AsyncStorage). Never transmitted to us as a separate identifier.</li>
+      <li><strong>Audio recordings.</strong> When you record your pet, the audio file is created on your device. The file is uploaded to our backend over HTTPS for transcription and translation, then stored locally in your app&rsquo;s history if the operation succeeds.</li>
+      <li><strong>In-app preferences.</strong> Selected language, daily limit counter, favourites flag, and similar UI state. Stored only on your device.</li>
+    </ul>
+
+    <h3>2.2. Information collected automatically</h3>
+    <ul>
+      <li><strong>Subscription status.</strong> Provided by Apple&rsquo;s App Store / Google Play and managed by RevenueCat. RevenueCat assigns an anonymous user identifier and stores entitlement state. We do not receive your Apple ID, payment card, or billing details.</li>
+      <li><strong>Network metadata.</strong> When the App calls our backend, our servers receive your IP address (for rate limiting, see &sect;4.4) and standard request headers (user-agent, timestamps).</li>
+      <li><strong>Anonymous analytics (planned).</strong> When enabled, the App will send anonymous usage events (screen views, feature taps, error counts) via PostHog. No personally identifiable information (PII) is included. You can opt out in Settings.</li>
+      <li><strong>Crash reports (planned).</strong> Anonymous crash reports may be sent via Sentry / a comparable service to help diagnose stability issues.</li>
+    </ul>
+
+    <h3>2.3. Information we do <em>not</em> collect</h3>
+    <ul>
+      <li>We do not require account creation. There is no login.</li>
+      <li>We do not collect your name, email, address, phone number, or precise location.</li>
+      <li>We do not collect contacts, photos library (other than what you explicitly share to), calendar, or microphone audio outside of recording sessions you start.</li>
+      <li>We do not use device advertising identifiers (IDFA / GAID) for tracking.</li>
+    </ul>
+
+    <h2>3. How We Use Information</h2>
+    <p>We use the information described above to:</p>
+    <ul>
+      <li>Process your audio recording and return a translation, emotional tone, and category.</li>
+      <li>Display your recording history and let you replay or re-share past results.</li>
+      <li>Manage your subscription entitlement (free vs. Premium tier).</li>
+      <li>Enforce rate limits to prevent abuse of our backend (30 requests per IP per hour).</li>
+      <li>Diagnose technical issues and improve the App (anonymous analytics and crash reports, when enabled).</li>
+      <li>Communicate with you when you contact us at <a href="mailto:support@talkimal.com">support@talkimal.com</a>.</li>
+    </ul>
+    <p>We do <strong>not</strong> use your information for advertising, profiling, or sale to third parties.</p>
+
+    <h2>4. Third-Party Services</h2>
+    <p>Talkimal is built on top of the following third-party services. Each service has its own privacy policy.</p>
+
+    <h3>4.1. OpenAI (Whisper + GPT-4o-mini)</h3>
+    <p>When you record audio, the audio file is sent to our backend (Supabase Edge Functions), which forwards it to OpenAI&rsquo;s Whisper API for transcription. The transcript is then sent to OpenAI&rsquo;s GPT-4o-mini API for interpretation.</p>
+    <p>Per OpenAI&rsquo;s API Data Usage Policy:</p>
+    <ul>
+      <li>Audio and transcripts may be retained by OpenAI for <strong>up to 30 days</strong> for abuse-monitoring purposes, then deleted.</li>
+      <li>Data submitted to the API is <strong>not used to train OpenAI models</strong>.</li>
+    </ul>
+    <p>Reference: <a href="https://openai.com/policies/api-data-usage-policies" target="_blank" rel="noopener">openai.com/policies/api-data-usage-policies</a></p>
+
+    <h3>4.2. Supabase (backend + Edge Functions)</h3>
+    <p>Our backend infrastructure runs on Supabase. Edge Functions handle audio upload, transcription orchestration, and rate limiting. A <code>rate_limits</code> table stores hashed IP addresses with a 1-hour TTL for abuse prevention. We do not store audio recordings or transcripts on Supabase.</p>
+    <p>Reference: <a href="https://supabase.com/privacy" target="_blank" rel="noopener">supabase.com/privacy</a></p>
+
+    <h3>4.3. Apple App Store / Google Play + RevenueCat</h3>
+    <p>Subscription purchases are processed by Apple (iOS) or Google (Android). We never see your payment details. RevenueCat receives an anonymous purchase token and stores your entitlement state.</p>
+    <p>References:</p>
+    <ul>
+      <li><a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">apple.com/legal/privacy</a></li>
+      <li><a href="https://www.revenuecat.com/privacy/" target="_blank" rel="noopener">revenuecat.com/privacy</a></li>
+    </ul>
+
+    <h3>4.4. PostHog (anonymous analytics, planned)</h3>
+    <p>PostHog will receive anonymous events. No PII is sent. Events are linked only to a randomly generated device-local ID.</p>
+    <p>Reference: <a href="https://posthog.com/privacy" target="_blank" rel="noopener">posthog.com/privacy</a></p>
+
+    <h2>5. Data Storage and Retention</h2>
+    <table>
+      <thead>
+        <tr><th>Data</th><th>Where</th><th>How long</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Audio recordings (saved results)</td><td>Your device, <code>documentDirectory/recordings/</code></td><td>Until you delete the history item or uninstall the App</td></tr>
+        <tr><td>Pet profiles, preferences, history</td><td>Your device, AsyncStorage</td><td>Until you delete or uninstall</td></tr>
+        <tr><td>Audio + transcript (in transit)</td><td>OpenAI API</td><td>Up to 30 days, then deleted (per OpenAI policy)</td></tr>
+        <tr><td>Hashed IP for rate limiting</td><td>Supabase <code>rate_limits</code> table</td><td>1 hour, then auto-purged</td></tr>
+        <tr><td>Subscription state</td><td>RevenueCat</td><td>While your subscription / entitlement is active</td></tr>
+        <tr><td>Anonymous analytics (when enabled)</td><td>PostHog</td><td>Per PostHog default retention</td></tr>
+      </tbody>
+    </table>
+    <p>We do <strong>not</strong> store your audio recordings or transcripts on our backend.</p>
+
+    <h2>6. Your Rights</h2>
+
+    <h3>6.1. Access and deletion</h3>
+    <p>Most personal data is stored on your device. You can delete it at any time:</p>
+    <ul>
+      <li>Delete a single item from history &rarr; swipe / tap delete.</li>
+      <li>Reset everything &rarr; uninstall the App.</li>
+    </ul>
+    <p>For data held by third parties (OpenAI, RevenueCat, Apple, Google), please refer to their privacy policies for deletion requests.</p>
+
+    <h3>6.2. GDPR (European Economic Area, UK)</h3>
+    <p>If you are located in the EEA or UK, you have the right to:</p>
+    <ul>
+      <li>Access the personal data we hold about you.</li>
+      <li>Request correction of inaccurate data.</li>
+      <li>Request deletion of personal data ("right to be forgotten").</li>
+      <li>Object to processing.</li>
+      <li>Data portability.</li>
+      <li>Lodge a complaint with your local data protection authority.</li>
+    </ul>
+    <p>To exercise these rights, contact <a href="mailto:support@talkimal.com">support@talkimal.com</a>.</p>
+
+    <h3>6.3. CCPA (California, USA)</h3>
+    <p>If you are a California resident, you have the right to:</p>
+    <ul>
+      <li>Know what categories of personal information we collect.</li>
+      <li>Request deletion of personal information we hold.</li>
+      <li>Opt out of any "sale" of personal information (we do not sell personal information).</li>
+      <li>Non-discrimination for exercising your rights.</li>
+    </ul>
+    <p>To exercise these rights, contact <a href="mailto:support@talkimal.com">support@talkimal.com</a>.</p>
+
+    <h3>6.4. Other jurisdictions</h3>
+    <p>If you are located outside the EEA, UK, or California, similar rights may be available under your local law. Contact <a href="mailto:support@talkimal.com">support@talkimal.com</a> for assistance.</p>
+
+    <h2>7. Children</h2>
+    <p>Talkimal carries an App Store age rating of <strong>4+</strong>. The App is suitable for general audiences and does not contain mature content.</p>
+    <p>We do <strong>not knowingly</strong> collect personal information from children under 13 (or under 16 in the EEA). We do not require account creation, do not collect email or name, and do not track location. If a parent or guardian believes their child has provided personal information, please contact <a href="mailto:support@talkimal.com">support@talkimal.com</a> so we can investigate and delete the data.</p>
+    <p>We comply with the Children&rsquo;s Online Privacy Protection Act (COPPA) where applicable.</p>
+
+    <h2>8. International Data Transfers</h2>
+    <p>The App is operated from a single jurisdiction, but our third-party providers (OpenAI, Supabase, RevenueCat, Apple, Google, PostHog) operate globally. By using the App, you understand that your data may be processed in the United States and other countries that may have different data-protection laws than your country of residence.</p>
+    <p>We rely on the contractual terms and certifications offered by these third parties (e.g., Standard Contractual Clauses) for cross-border transfers.</p>
+
+    <h2>9. Security</h2>
+    <p>We use HTTPS / TLS for all data in transit. Audio uploads, API calls, and analytics events are encrypted between your device and our backend. Backend secrets (e.g., OpenAI API keys) are stored in Supabase Secrets and never shipped in the App bundle.</p>
+    <p>No system is perfectly secure. If we become aware of a data breach affecting your information, we will notify you and the relevant authorities as required by law.</p>
+
+    <h2>10. Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. Material changes will be reflected in the "Last Updated" date at the top of this page. For significant changes, we will display an in-app notice.</p>
+    <p>Continued use of the App after a policy update constitutes acceptance of the revised policy.</p>
+
+    <h2>11. Contact</h2>
+    <p>Questions, concerns, or requests:</p>
+    <p>
+      <strong>Email:</strong> <a href="mailto:support@talkimal.com">support@talkimal.com</a><br />
+      <strong>Website:</strong> <a href="https://talkimal.com">https://talkimal.com</a>
+    </p>
+    <p>We aim to respond within 14 days.</p>
+
+    <hr />
+
+    <p><em>This Privacy Policy is provided in English. Translations may be made available for convenience but the English version is authoritative in case of conflict.</em></p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="inner">
+      <span>&copy; 2026 Talkimal</span>
+      <span>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+        <a href="mailto:support@talkimal.com">Contact</a>
+      </span>
+    </div>
+  </footer>
+</body>
+</html>
